@@ -8,6 +8,10 @@ $resultado = $conexion->query("SELECT * FROM productos");
 <head>
   <meta charset="UTF-8">
   <title>Lista de Productos</title>
+    <!-- CSS global para menú, header y footer -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- CSS específico para tablas, formularios y contenido -->
+  <link rel="stylesheet" href="css/paginas.css">
 </head>
 <body>
   <h1>Productos</h1>

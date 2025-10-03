@@ -8,6 +8,10 @@ $resultado = $conexion->query("SELECT * FROM clientes");
 <head>
   <meta charset="UTF-8">
   <title>Lista de Clientes</title>
+    <!-- CSS global para menu, header y footer -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- CSS especifico para tablas, formularios y contenido -->
+  <link rel="stylesheet" href="css/paginas.css">
 </head>
 <body>
   <h1>Clientes</h1>

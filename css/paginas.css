@@ -1,0 +1,58 @@
+/* formularios */
+
+/* Titulos */
+h1, h2 {
+  color: #4CAF50;
+  text-align: center;
+}
+
+/* Secciones */
+section, .form-container {
+  background: white;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* Tablas */
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+table th {
+  background: #333;
+  color: white;
+}
+
+table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* Formularios */
+form input, form textarea, form button, input[type="submit"] {
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button, input[type="submit"] {
+  background: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+form button:hover, input[type="submit"]:hover {
+  background: #ff9800;
+}

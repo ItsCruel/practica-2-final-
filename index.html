@@ -1,43 +1,93 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Mueblería RobleClaro</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; color: #333; }
-    header, section, footer { background: #fff; padding: 15px; margin-bottom: 15px; border-radius: 8px; }
-    h1, h2 { margin-top: 0; }
-    footer { text-align: center; font-size: 0.9em; color: #666; }
-  </style>
+  <!-- CSS global para menu, header y footer -->
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <!-- CSS especifico para tablas, formularios y contenido -->
+  <link rel="stylesheet" href="css/paginas.css" type="text/css">
 </head>
 <body>
-  <header>
+  <div id="header">
     <h1>Mueblería RobleClaro</h1>
     <p>Diseño y fabricación de muebles a la medida</p>
-  </header>
- 
-  <section id="mision">
+  </div>
+
+  <!-- Menu de navegacion -->
+  <div id="nav">
+    <a href="index.html">Inicio</a> |
+    <a href="clientes.php">Clientes</a> |
+    <a href="productos.php">Productos</a> |
+    <a href="servicios.php">Servicios</a>
+  </div>
+
+  <!-- Seccion principal -->
+  <div id="bienvenida">
+    <h2>Bienvenido</h2>
+    <p>Esta es la página principal de la Mueblería RobleClaro. Desde aquí puedes navegar para ver nuestros clientes, productos y servicios.</p>
+  </div>
+
+  <div id="mision">
     <h2>Misión</h2>
     <p>Nuestra misión es crear muebles duraderos y funcionales que combinen diseño, calidad y respeto por el medio ambiente.</p>
-  </section>
+  </div>
 
-  <section id="vision">
+  <div id="vision">
     <h2>Visión</h2>
     <p>Queremos ser reconocidos como la mueblería de confianza, destacando por innovación, servicio y compromiso con la sostenibilidad.</p>
-  </section>
+  </div>
 
-  <section id="meta">
+  <div id="meta">
     <h2>Meta</h2>
     <p>Nuestra meta es crecer de forma responsable, ampliando nuestro catálogo y alcanzando más hogares con productos de excelencia.</p>
-  </section>
+  </div>
 
-  <footer>
-    &copy; <span id="year">2025</span> Mueblería RobleClaro
-  </footer>
+  <!-- Formulario de cita -->
+  <div id="cita">
+    <h2>Registrar una cita</h2>
+    <p>Rellena el siguiente formulario para contactarnos y agendar una cita.</p>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <form action="procesar_cita.php" method="post">
+      <label for="nombre">Nombre completo:</label><br>
+      <input type="text" id="nombre" name="nombre"><br><br>
+
+      <label for="correo">Correo electrónico:</label><br>
+      <input type="text" id="correo" name="correo"><br><br>
+
+      <label for="telefono">Teléfono (10 dígitos):</label><br>
+      <input type="text" id="telefono" name="telefono"><br><br>
+
+      <label for="fecha">Fecha de la cita (dd/mm/aaaa):</label><br>
+      <input type="text" id="fecha" name="fecha"><br><br>
+
+      <label for="hora">Hora de la cita (hh:mm):</label><br>
+      <input type="text" id="hora" name="hora"><br><br>
+
+      <label for="mensaje">Mensaje adicional:</label><br>
+      <textarea id="mensaje" name="mensaje" rows="4" cols="40"></textarea><br><br>
+
+      <input type="submit" value="Enviar cita">
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div id="footer">
+    &copy; <span id="year"></span> Mueblería RobleClaro
+    <br><br>
+    <!-- Validadores -->
+    <a href="https://validator.w3.org/check?uri=referer" target="_blank">
+      <img src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Transitional" height="31" width="88">
+    </a>
+
+    <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+      <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" height="31" width="88">
+    </a>
+  </div>
+
+  <script type="text/javascript">
+  
+    document.getElementById('year').innerHTML = new Date().getFullYear();
   </script>
 </body>
 </html>
