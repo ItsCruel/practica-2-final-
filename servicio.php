@@ -5,18 +5,15 @@ $resultado = $conexion->query("SELECT * FROM servicios");
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Lista de Servicios</title>
-  <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://raw.githubusercontent.com/ItsCruel/practica-2-final-/main/css/paginas.css" type="text/css">
-
+<meta charset="UTF-8">
+<title>Lista de Servicios</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/paginas.css">
 </head>
 <body>
+<div class="servicio-section">
   <h1>Servicios</h1>
-
-  <!-- Enlace al CRUD -->
-  <p><a href="servicios_crud.php">Administrar / CRUD</a></p>
-
+  <p><a href="servicio_crud.php">Administrar / CRUD</a></p>
   <?php while($fila = $resultado->fetch_assoc()) { ?>
     <section>
       <h3><?php echo $fila['nombre']; ?></h3>
@@ -24,5 +21,6 @@ $resultado = $conexion->query("SELECT * FROM servicios");
       <strong>Costo: $<?php echo $fila['costo']; ?></strong>
     </section>
   <?php } ?>
+</div>
 </body>
 </html>

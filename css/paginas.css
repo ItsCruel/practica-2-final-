@@ -1,13 +1,5 @@
-/* formularios */
-
-/* Titulos */
-h1, h2 {
-  color: #4CAF50;
-  text-align: center;
-}
-
-/* Secciones */
-section, .form-container {
+/* Contenedor principal de formularios o secciones */
+.form-container, .servicio-section, .producto-section, .cliente-section {
   background: white;
   max-width: 900px;
   margin: 20px auto;
@@ -16,30 +8,43 @@ section, .form-container {
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
-/* Tablas */
-table {
+/* Títulos dentro de formularios/secciones */
+.form-container h1, .form-container h2,
+.servicio-section h1, .servicio-section h2,
+.producto-section h1, .producto-section h2,
+.cliente-section h1, .cliente-section h2 {
+  color: #4CAF50;
+  text-align: center;
+}
+
+/* Tablas específicas */
+.tabla {
   width: 90%;
   margin: 20px auto;
   border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
-table th, table td {
+.tabla th, .tabla td {
   border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
 }
 
-table th {
+.tabla th {
   background: #333;
   color: white;
 }
 
-table tr:nth-child(even) {
+.tabla tr:nth-child(even) {
   background: #f9f9f9;
 }
 
 /* Formularios */
-form input, form textarea, form button, input[type="submit"] {
+.form-container form input,
+.form-container form textarea,
+.form-container form button,
+.form-container input[type="submit"] {
   width: 100%;
   margin: 8px 0;
   padding: 10px;
@@ -47,12 +52,14 @@ form input, form textarea, form button, input[type="submit"] {
   border: 1px solid #ccc;
 }
 
-form button, input[type="submit"] {
+.form-container form button,
+.form-container input[type="submit"] {
   background: #4CAF50;
   color: white;
   cursor: pointer;
 }
 
-form button:hover, input[type="submit"]:hover {
+.form-container form button:hover,
+.form-container input[type="submit"]:hover {
   background: #ff9800;
 }
