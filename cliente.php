@@ -8,7 +8,8 @@ $resultado = $conexion->query("SELECT * FROM cliente");
 <meta charset="UTF-8">
 <title>Lista de Clientes</title>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/paginas.css">
+<link rel="stylesheet" href="https://itscruel.github.io/practica-2-final-/css/paginas.css" type="text/css">
+
 </head>
 <body>
 <div class="cliente-section">
