@@ -1,6 +1,6 @@
 <?php
 include("conexion.php");
-$resultado = $conexion->query("SELECT * FROM servicios");
+$resultado = $conexion->query("SELECT * FROM servicio");
 ?>
 <!DOCTYPE html>
 <html lang="es">

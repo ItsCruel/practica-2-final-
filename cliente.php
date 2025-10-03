@@ -1,6 +1,6 @@
 <?php
 include("conexion.php");
-$resultado = $conexion->query("SELECT * FROM clientes");
+$resultado = $conexion->query("SELECT * FROM cliente");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -33,4 +33,3 @@ $resultado = $conexion->query("SELECT * FROM clientes");
 </div>
 </body>
 </html>
-

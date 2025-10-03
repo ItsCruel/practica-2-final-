@@ -1,6 +1,6 @@
 <?php
 include("conexion.php");
-$resultado = $conexion->query("SELECT * FROM productos");
+$resultado = $conexion->query("SELECT * FROM producto");
 ?>
 <!DOCTYPE html>
 <html lang="es">
