@@ -8,10 +8,15 @@ $resultado = $conexion->query("SELECT * FROM servicios");
   <meta charset="UTF-8">
   <title>Lista de Servicios</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/paginas.css">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/ItsCruel/practica-2-final-/main/css/paginas.css" type="text/css">
+
 </head>
 <body>
   <h1>Servicios</h1>
+
+  <!-- Enlace al CRUD -->
+  <p><a href="servicios_crud.php">Administrar / CRUD</a></p>
+
   <?php while($fila = $resultado->fetch_assoc()) { ?>
     <section>
       <h3><?php echo $fila['nombre']; ?></h3>

@@ -1,6 +1,5 @@
 <?php
 include("conexion.php");
-
 $resultado = $conexion->query("SELECT * FROM productos");
 ?>
 <!DOCTYPE html>
@@ -8,13 +7,16 @@ $resultado = $conexion->query("SELECT * FROM productos");
 <head>
   <meta charset="UTF-8">
   <title>Lista de Productos</title>
-    <!-- CSS global para menú, header y footer -->
   <link rel="stylesheet" href="css/style.css">
-  <!-- CSS específico para tablas, formularios y contenido -->
-  <link rel="stylesheet" href="css/paginas.css">
+ <link rel="stylesheet" href="https://raw.githubusercontent.com/ItsCruel/practica-2-final-/main/css/paginas.css" type="text/css">
+
 </head>
 <body>
   <h1>Productos</h1>
+
+  <!-- Enlace al CRUD -->
+  <p><a href="productos_crud.php">Administrar / CRUD</a></p>
+
   <?php while($fila = $resultado->fetch_assoc()) { ?>
     <div style="margin-bottom:20px;">
       <h3><?php echo $fila['nombre']; ?></h3>

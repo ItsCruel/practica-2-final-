@@ -11,7 +11,8 @@ $resultado = $conexion->query("SELECT * FROM clientes");
     <!-- CSS global para menu, header y footer -->
   <link rel="stylesheet" href="css/style.css">
   <!-- CSS especifico para tablas, formularios y contenido -->
-  <link rel="stylesheet" href="css/paginas.css">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/ItsCruel/practica-2-final-/main/css/paginas.css" type="text/css">
+
 </head>
 <body>
   <h1>Clientes</h1>
