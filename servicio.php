@@ -8,7 +8,8 @@ $resultado = $conexion->query("SELECT * FROM servicio");
 <meta charset="UTF-8">
 <title>Lista de Servicios</title>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/paginas.css">
+<link rel="stylesheet" href="">
+
 </head>
 <body>
 <div class="servicio-section">
