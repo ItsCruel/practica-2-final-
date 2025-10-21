@@ -2,16 +2,21 @@
 <html lang="es">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Mueblería RobleClaro</title>
+  <title>Muebleria RobleClaro</title>
+
   <!-- CSS global para menu, header y footer -->
   <link rel="stylesheet" href="css/style.css" type="text/css">
   <!-- CSS especifico para tablas, formularios y contenido -->
-<link rel="stylesheet" href="https://itscruel.github.io/practica-2-final-/css/paginas.css" type="text/css">
+  <link rel="stylesheet" href="https://itscruel.github.io/practica-2-final-/css/paginas.css" type="text/css">
+
+  <!-- Libreria jQuery para efectos y validaciones -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
 
 <body>
   <div id="header">
-    <h1>Mueblería RobleClaro</h1>
-    <p>Diseño y fabricación de muebles a la medida</p>
+    <h1>Muebleria RobleClaro</h1>
+    <p>Diseno y fabricacion de muebles a la medida</p>
   </div>
 
   <!-- Menu de navegacion -->
@@ -25,22 +30,22 @@
   <!-- Seccion principal -->
   <div id="bienvenida">
     <h2>Bienvenido</h2>
-    <p>Esta es la página principal de la Mueblería RobleClaro. Desde aquí puedes navegar para ver nuestros clientes, productos y servicios.</p>
+    <p>Esta es la pagina principal de la Muebleria RobleClaro. Desde aqui puedes navegar para ver nuestros clientes, productos y servicios.</p>
   </div>
 
   <div id="mision">
-    <h2>Misión</h2>
-    <p>Nuestra misión es crear muebles duraderos y funcionales que combinen diseño, calidad y respeto por el medio ambiente.</p>
+    <h2>Mision</h2>
+    <p>Nuestra mision es crear muebles duraderos y funcionales que combinen diseno, calidad y respeto por el medio ambiente.</p>
   </div>
 
   <div id="vision">
-    <h2>Visión</h2>
-    <p>Queremos ser reconocidos como la mueblería de confianza, destacando por innovación, servicio y compromiso con la sostenibilidad.</p>
+    <h2>Vision</h2>
+    <p>Queremos ser reconocidos como la muebleria de confianza, destacando por innovacion, servicio y compromiso con la sostenibilidad.</p>
   </div>
 
   <div id="meta">
     <h2>Meta</h2>
-    <p>Nuestra meta es crecer de forma responsable, ampliando nuestro catálogo y alcanzando más hogares con productos de excelencia.</p>
+    <p>Nuestra meta es crecer de forma responsable, ampliando nuestro catalogo y alcanzando mas hogares con productos de excelencia.</p>
   </div>
 
   <!-- Formulario de cita -->
@@ -48,14 +53,14 @@
     <h2>Registrar una cita</h2>
     <p>Rellena el siguiente formulario para contactarnos y agendar una cita.</p>
 
-    <form action="procesar_cita.php" method="post">
+    <form action="procesar_cita.php" method="post" onsubmit="return validarFormulario()">
       <label for="nombre">Nombre completo:</label><br>
       <input type="text" id="nombre" name="nombre"><br><br>
 
-      <label for="correo">Correo electrónico:</label><br>
+      <label for="correo">Correo electronico:</label><br>
       <input type="text" id="correo" name="correo"><br><br>
 
-      <label for="telefono">Teléfono (10 dígitos):</label><br>
+      <label for="telefono">Telefono (10 digitos):</label><br>
       <input type="text" id="telefono" name="telefono"><br><br>
 
       <label for="fecha">Fecha de la cita (dd/mm/aaaa):</label><br>
@@ -73,7 +78,7 @@
 
   <!-- Footer -->
   <div id="footer">
-    &copy; <span id="year"></span> Mueblería RobleClaro
+    &copy; <span id="year"></span> Muebleria RobleClaro
     <br><br>
     <!-- Validadores -->
     <a href="https://validator.w3.org/check?uri=referer" target="_blank">
@@ -85,9 +90,80 @@
     </a>
   </div>
 
+  <!-- Script de comportamiento dinamico y validacion -->
   <script type="text/javascript">
-  
+    // Actualiza el año automaticamente
     document.getElementById('year').innerHTML = new Date().getFullYear();
+
+    // --- Efectos con jQuery (animaciones y eventos dinamicos) ---
+    $(document).ready(function() {
+
+      // Mensaje de bienvenida animado
+      alert("Bienvenido a Muebleria RobleClaro!");
+
+      // Efecto fade-in para las secciones principales
+      $("#bienvenida, #mision, #vision, #meta, #cita").hide().fadeIn(1000);
+
+      // Cambiar color de titulos al pasar el mouse
+      $("h2").hover(
+        function() { $(this).css("color", "#ff9800"); },
+        function() { $(this).css("color", "#4CAF50"); }
+      );
+
+      // Efecto de resaltado en los inputs del formulario
+      $("input, textarea").focus(function() {
+        $(this).css("background-color", "#e8f5e9");
+      }).blur(function() {
+        $(this).css("background-color", "white");
+      });
+    });
+
+    // --- Validacion del formulario antes de enviarlo ---
+    function validarFormulario() {
+      const nombre = document.getElementById("nombre").value.trim();
+      const correo = document.getElementById("correo").value.trim();
+      const telefono = document.getElementById("telefono").value.trim();
+      const fecha = document.getElementById("fecha").value.trim();
+      const hora = document.getElementById("hora").value.trim();
+
+      if (!nombre || !correo || !telefono || !fecha || !hora) {
+        alert("Por favor completa todos los campos requeridos.");
+        return false;
+      }
+
+      // Validar formato del correo
+      const regexCorreo = /^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/;
+      if (!regexCorreo.test(correo)) {
+        alert("Por favor ingresa un correo valido.");
+        return false;
+      }
+
+      // Validar telefono (10 digitos)
+      const regexTelefono = /^\d{10}$/;
+      if (!regexTelefono.test(telefono)) {
+        alert("El telefono debe contener exactamente 10 digitos.");
+        return false;
+      }
+
+      // Validar formato de fecha (dd/mm/aaaa)
+      const regexFecha = /^\d{2}\/\d{2}\/\d{4}$/;
+      if (!regexFecha.test(fecha)) {
+        alert("La fecha debe tener el formato dd/mm/aaaa.");
+        return false;
+      }
+
+      // Validar hora (hh:mm)
+      const regexHora = /^\d{2}:\d{2}$/;
+      if (!regexHora.test(hora)) {
+        alert("La hora debe tener el formato hh:mm.");
+        return false;
+      }
+
+      // Si todo esta correcto
+      alert("Datos validados correctamente. Enviando formulario...");
+      return true;
+    }
   </script>
+
 </body>
 </html>
