@@ -49,115 +49,116 @@
   </div>
 
   <!-- Formulario 1: Cita -->
-  <div id="cita" class="form-container">
-    <h2>Registrar una cita</h2>
-    <form action="procesar_cita.php" method="post" onsubmit="return validarFormulario()">
-      <label for="nombre">Nombre completo:</label>
-      <input type="text" id="nombre" name="nombre">
-      <div id="error-nombre" class="error-msg"></div>
+<div id="cita" class="form-container">
+  <h2>Registrar una cita</h2>
+  <form action="procesar_cita.php" method="post" onsubmit="return validarFormulario()">
+    <label for="nombre">Nombre completo:</label>
+    <input type="text" id="nombre" name="nombre">
+    <div id="error-nombre" class="error-msg"></div>
 
-      <label for="correo">Correo electronico:</label>
-      <input type="text" id="correo" name="correo">
-      <div id="error-correo" class="error-msg"></div>
+    <label for="correo">Correo electrónico:</label>
+    <input type="text" id="correo" name="correo">
+    <div id="error-correo" class="error-msg"></div>
 
-      <label for="telefono">Telefono (10 digitos):</label>
-      <input type="text" id="telefono" name="telefono">
-      <div id="error-telefono" class="error-msg"></div>
+    <label for="telefono">Teléfono (10 dígitos):</label>
+    <input type="text" id="telefono" name="telefono" maxlength="10">
+    <div id="error-telefono" class="error-msg"></div>
 
-      <label for="fecha">Fecha de la cita (dd/mm/aaaa):</label>
-      <input type="text" id="fecha" name="fecha">
-      <div id="error-fecha" class="error-msg"></div>
+    <label for="fecha">Fecha de la cita (dd/mm/aaaa):</label>
+    <input type="text" id="fecha" name="fecha">
+    <div id="error-fecha" class="error-msg"></div>
 
-      <label for="hora">Hora de la cita (hh:mm):</label>
-      <input type="text" id="hora" name="hora">
-      <div id="error-hora" class="error-msg"></div>
+    <label for="hora">Hora de la cita (hh:mm):</label>
+    <input type="text" id="hora" name="hora">
+    <div id="error-hora" class="error-msg"></div>
 
-      <label for="mensaje">Mensaje adicional:</label>
-      <textarea id="mensaje" name="mensaje" rows="4" cols="40"></textarea>
+    <label for="mensaje">Mensaje adicional:</label>
+    <textarea id="mensaje" name="mensaje" rows="4" cols="40"></textarea>
 
-      <button type="submit">Enviar cita</button>
-    </form>
-  </div>
+    <input type="submit" value="Enviar cita">
+  </form>
+</div>
 
-  <!-- Formulario 2: Registro de cliente -->
-  <div id="cliente" class="form-container">
-    <h2>Registro de Cliente</h2>
-    <form action="procesar_cliente.php" method="post" onsubmit="return validarCliente()">
-      <label for="nombre_cliente">Nombre completo:</label>
-      <input type="text" id="nombre_cliente" name="nombre_cliente">
-      <div id="error-nombre-cliente" class="error-msg"></div>
+<!-- Formulario 2: Registro de cliente -->
+<div id="cliente" class="form-container">
+  <h2>Registro de Cliente</h2>
+  <form action="procesar_cliente.php" method="post" onsubmit="return validarCliente()">
+    <label for="nombre_cliente">Nombre completo:</label>
+    <input type="text" id="nombre_cliente" name="nombre_cliente">
+    <div id="error-nombre-cliente" class="error-msg"></div>
 
-      <label for="direccion">Direccion:</label>
-      <input type="text" id="direccion" name="direccion">
-      <div id="error-direccion" class="error-msg"></div>
+    <label for="direccion">Dirección:</label>
+    <input type="text" id="direccion" name="direccion">
+    <div id="error-direccion" class="error-msg"></div>
 
-      <label for="correo_cliente">Correo electronico:</label>
-      <input type="text" id="correo_cliente" name="correo_cliente">
-      <div id="error-correo-cliente" class="error-msg"></div>
+    <label for="correo_cliente">Correo electrónico:</label>
+    <input type="text" id="correo_cliente" name="correo_cliente">
+    <div id="error-correo-cliente" class="error-msg"></div>
 
-      <label for="telefono_cliente">Telefono (10 digitos):</label>
-      <input type="text" id="telefono_cliente" name="telefono_cliente">
-      <div id="error-telefono-cliente" class="error-msg"></div>
+    <label for="telefono_cliente">Teléfono (10 dígitos):</label>
+    <input type="text" id="telefono_cliente" name="telefono_cliente" maxlength="10">
+    <div id="error-telefono-cliente" class="error-msg"></div>
 
-      <label for="tipo">Tipo de cliente:</label>
-      <select id="tipo" name="tipo">
-        <option value="">Selecciona una opcion</option>
-        <option value="particular">Particular</option>
-        <option value="empresa">Empresa</option>
-        <option value="distribuidor">Distribuidor</option>
-      </select>
-      <div id="error-tipo" class="error-msg"></div>
+    <label for="tipo">Tipo de cliente:</label>
+    <select id="tipo" name="tipo">
+      <option value="">Selecciona una opción</option>
+      <option value="particular">Particular</option>
+      <option value="empresa">Empresa</option>
+      <option value="distribuidor">Distribuidor</option>
+    </select>
+    <div id="error-tipo" class="error-msg"></div>
 
-      <button type="submit">Registrar cliente</button>
-    </form>
-  </div>
+    <input type="submit" value="Registrar cliente">
+  </form>
+</div>
 
-  <!-- Formulario 3: Pedido de producto -->
-  <div id="pedido" class="form-container">
-    <h2>Realizar un pedido</h2>
-    <form action="procesar_pedido.php" method="post" onsubmit="return validarPedido()">
-      <label for="producto">Producto:</label>
-      <input type="text" id="producto" name="producto">
-      <div id="error-producto" class="error-msg"></div>
+<!-- Formulario 3: Pedido de producto -->
+<div id="pedido" class="form-container">
+  <h2>Realizar un pedido</h2>
+  <form action="procesar_pedido.php" method="post" onsubmit="return validarPedido()">
+    <label for="producto">Producto:</label>
+    <input type="text" id="producto" name="producto">
+    <div id="error-producto" class="error-msg"></div>
 
-      <label for="cantidad">Cantidad:</label>
-      <input type="number" id="cantidad" name="cantidad" min="1">
-      <div id="error-cantidad" class="error-msg"></div>
+    <label for="cantidad">Cantidad:</label>
+    <input type="text" id="cantidad" name="cantidad">
+    <div id="error-cantidad" class="error-msg"></div>
 
-      <label for="fecha_entrega">Fecha de entrega (dd/mm/aaaa):</label>
-      <input type="text" id="fecha_entrega" name="fecha_entrega">
-      <div id="error-fecha-entrega" class="error-msg"></div>
+    <label for="fecha_entrega">Fecha de entrega (dd/mm/aaaa):</label>
+    <input type="text" id="fecha_entrega" name="fecha_entrega">
+    <div id="error-fecha-entrega" class="error-msg"></div>
 
-      <label for="comentarios">Comentarios adicionales:</label>
-      <textarea id="comentarios" name="comentarios" rows="4" cols="40"></textarea>
+    <label for="comentarios">Comentarios adicionales:</label>
+    <textarea id="comentarios" name="comentarios" rows="4" cols="40"></textarea>
 
-      <button type="submit">Enviar pedido</button>
-    </form>
-  </div>
+    <input type="submit" value="Enviar pedido">
+  </form>
+</div>
 
-  <!-- Formulario 4: Contacto general -->
-  <div id="contacto" class="form-container">
-    <h2>Contacto general</h2>
-    <form action="procesar_contacto.php" method="post" onsubmit="return validarContacto()">
-      <label for="nombre_contacto">Nombre:</label>
-      <input type="text" id="nombre_contacto" name="nombre_contacto">
-      <div id="error-nombre-contacto" class="error-msg"></div>
+<!-- Formulario 4: Contacto general -->
+<div id="contacto" class="form-container">
+  <h2>Contacto general</h2>
+  <form action="procesar_contacto.php" method="post" onsubmit="return validarContacto()">
+    <label for="nombre_contacto">Nombre:</label>
+    <input type="text" id="nombre_contacto" name="nombre_contacto">
+    <div id="error-nombre-contacto" class="error-msg"></div>
 
-      <label for="correo_contacto">Correo:</label>
-      <input type="text" id="correo_contacto" name="correo_contacto">
-      <div id="error-correo-contacto" class="error-msg"></div>
+    <label for="correo_contacto">Correo:</label>
+    <input type="text" id="correo_contacto" name="correo_contacto">
+    <div id="error-correo-contacto" class="error-msg"></div>
 
-      <label for="asunto">Asunto:</label>
-      <input type="text" id="asunto" name="asunto">
-      <div id="error-asunto" class="error-msg"></div>
+    <label for="asunto">Asunto:</label>
+    <input type="text" id="asunto" name="asunto">
+    <div id="error-asunto" class="error-msg"></div>
 
-      <label for="mensaje_contacto">Mensaje:</label>
-      <textarea id="mensaje_contacto" name="mensaje_contacto" rows="4" cols="40"></textarea>
-      <div id="error-mensaje-contacto" class="error-msg"></div>
+    <label for="mensaje_contacto">Mensaje:</label>
+    <textarea id="mensaje_contacto" name="mensaje_contacto" rows="4" cols="40"></textarea>
+    <div id="error-mensaje-contacto" class="error-msg"></div>
 
-      <button type="submit">Enviar mensaje</button>
-    </form>
-  </div>
+    <input type="submit" value="Enviar mensaje">
+  </form>
+</div>
+
 
   <!-- Footer -->
   <div id="footer">
