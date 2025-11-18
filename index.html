@@ -6,6 +6,7 @@
 
   <!-- CSS global -->
   <link rel="stylesheet" href="css/style.css" type="text/css">
+
   <!-- CSS especifico -->
   <link rel="stylesheet" href="https://itscruel.github.io/practica-2-final-/css/paginas.css" type="text/css">
 
@@ -16,7 +17,7 @@
 <body>
   <div id="header">
     <h1>Muebleria RobleClaro</h1>
-    <p>Diseno y fabricacion de muebles a la medida</p>
+    <p>Diseño y fabricación de muebles a la medida</p>
   </div>
 
   <!-- Menu -->
@@ -27,138 +28,26 @@
     <a href="servicio.php">Servicios</a>
   </div>
 
-  <!-- Seccion principal -->
+  <!-- Secciones principales -->
   <div id="bienvenida" class="form-container">
     <h2>Bienvenido</h2>
-    <p>Esta es la pagina principal de la Muebleria RobleClaro. Desde aqui puedes navegar para ver nuestros clientes, productos y servicios.</p>
+    <p>Esta es la página principal de la Muebleria RobleClaro. Desde aquí puedes navegar para ver nuestros clientes, productos y servicios.</p>
   </div>
 
   <div id="mision" class="form-container">
-    <h2>Mision</h2>
-    <p>Nuestra mision es crear muebles duraderos y funcionales que combinen diseno, calidad y respeto por el medio ambiente.</p>
+    <h2>Misión</h2>
+    <p>Nuestra misión es crear muebles duraderos y funcionales que combinen diseño, calidad y respeto por el medio ambiente.</p>
   </div>
 
   <div id="vision" class="form-container">
-    <h2>Vision</h2>
-    <p>Queremos ser reconocidos como la muebleria de confianza, destacando por innovacion, servicio y compromiso con la sostenibilidad.</p>
+    <h2>Visión</h2>
+    <p>Queremos ser reconocidos como la mueblería de confianza, destacando por innovación, servicio y compromiso con la sostenibilidad.</p>
   </div>
 
   <div id="meta" class="form-container">
     <h2>Meta</h2>
-    <p>Nuestra meta es crecer de forma responsable, ampliando nuestro catalogo y alcanzando mas hogares con productos de excelencia.</p>
+    <p>Nuestra meta es crecer de forma responsable, ampliando nuestro catálogo y alcanzando más hogares con productos de excelencia.</p>
   </div>
-
-  <!-- Formulario 1: Cita -->
-<div id="cita" class="form-container">
-  <h2>Registrar una cita</h2>
-  <form action="procesar_cita.php" method="post" onsubmit="return validarFormulario()">
-    <label for="nombre">Nombre completo:</label>
-    <input type="text" id="nombre" name="nombre">
-    <div id="error-nombre" class="error-msg"></div>
-
-    <label for="correo">Correo electrónico:</label>
-    <input type="text" id="correo" name="correo">
-    <div id="error-correo" class="error-msg"></div>
-
-    <label for="telefono">Teléfono (10 dígitos):</label>
-    <input type="text" id="telefono" name="telefono" maxlength="10">
-    <div id="error-telefono" class="error-msg"></div>
-
-    <label for="fecha">Fecha de la cita (dd/mm/aaaa):</label>
-    <input type="text" id="fecha" name="fecha">
-    <div id="error-fecha" class="error-msg"></div>
-
-    <label for="hora">Hora de la cita (hh:mm):</label>
-    <input type="text" id="hora" name="hora">
-    <div id="error-hora" class="error-msg"></div>
-
-    <label for="mensaje">Mensaje adicional:</label>
-    <textarea id="mensaje" name="mensaje" rows="4" cols="40"></textarea>
-
-    <input type="submit" value="Enviar cita">
-  </form>
-</div>
-
-<!-- Formulario 2: Registro de cliente -->
-<div id="cliente" class="form-container">
-  <h2>Registro de Cliente</h2>
-  <form action="procesar_cliente.php" method="post" onsubmit="return validarCliente()">
-    <label for="nombre_cliente">Nombre completo:</label>
-    <input type="text" id="nombre_cliente" name="nombre_cliente">
-    <div id="error-nombre-cliente" class="error-msg"></div>
-
-    <label for="direccion">Dirección:</label>
-    <input type="text" id="direccion" name="direccion">
-    <div id="error-direccion" class="error-msg"></div>
-
-    <label for="correo_cliente">Correo electrónico:</label>
-    <input type="text" id="correo_cliente" name="correo_cliente">
-    <div id="error-correo-cliente" class="error-msg"></div>
-
-    <label for="telefono_cliente">Teléfono (10 dígitos):</label>
-    <input type="text" id="telefono_cliente" name="telefono_cliente" maxlength="10">
-    <div id="error-telefono-cliente" class="error-msg"></div>
-
-    <label for="tipo">Tipo de cliente:</label>
-    <select id="tipo" name="tipo">
-      <option value="">Selecciona una opción</option>
-      <option value="particular">Particular</option>
-      <option value="empresa">Empresa</option>
-      <option value="distribuidor">Distribuidor</option>
-    </select>
-    <div id="error-tipo" class="error-msg"></div>
-
-    <input type="submit" value="Registrar cliente">
-  </form>
-</div>
-
-<!-- Formulario 3: Pedido de producto -->
-<div id="pedido" class="form-container">
-  <h2>Realizar un pedido</h2>
-  <form action="procesar_pedido.php" method="post" onsubmit="return validarPedido()">
-    <label for="producto">Producto:</label>
-    <input type="text" id="producto" name="producto">
-    <div id="error-producto" class="error-msg"></div>
-
-    <label for="cantidad">Cantidad:</label>
-    <input type="text" id="cantidad" name="cantidad">
-    <div id="error-cantidad" class="error-msg"></div>
-
-    <label for="fecha_entrega">Fecha de entrega (dd/mm/aaaa):</label>
-    <input type="text" id="fecha_entrega" name="fecha_entrega">
-    <div id="error-fecha-entrega" class="error-msg"></div>
-
-    <label for="comentarios">Comentarios adicionales:</label>
-    <textarea id="comentarios" name="comentarios" rows="4" cols="40"></textarea>
-
-    <input type="submit" value="Enviar pedido">
-  </form>
-</div>
-
-<!-- Formulario 4: Contacto general -->
-<div id="contacto" class="form-container">
-  <h2>Contacto general</h2>
-  <form action="procesar_contacto.php" method="post" onsubmit="return validarContacto()">
-    <label for="nombre_contacto">Nombre:</label>
-    <input type="text" id="nombre_contacto" name="nombre_contacto">
-    <div id="error-nombre-contacto" class="error-msg"></div>
-
-    <label for="correo_contacto">Correo:</label>
-    <input type="text" id="correo_contacto" name="correo_contacto">
-    <div id="error-correo-contacto" class="error-msg"></div>
-
-    <label for="asunto">Asunto:</label>
-    <input type="text" id="asunto" name="asunto">
-    <div id="error-asunto" class="error-msg"></div>
-
-    <label for="mensaje_contacto">Mensaje:</label>
-    <textarea id="mensaje_contacto" name="mensaje_contacto" rows="4" cols="40"></textarea>
-    <div id="error-mensaje-contacto" class="error-msg"></div>
-
-    <input type="submit" value="Enviar mensaje">
-  </form>
-</div>
-
 
   <!-- Footer -->
   <div id="footer">
@@ -177,110 +66,12 @@
     document.getElementById('year').innerHTML = new Date().getFullYear();
 
     $(document).ready(function() {
-      $("#bienvenida, #mision, #vision, #meta, #cita, #cliente, #pedido, #contacto").hide().fadeIn(800);
+      $("#bienvenida, #mision, #vision, #meta").hide().fadeIn(800);
       $("h2").hover(
         function() { $(this).css("color", "#ff9800"); },
         function() { $(this).css("color", "#4CAF50"); }
       );
     });
-
-    // Funciones de validacion generales
-    function mostrarError(id, mensaje) {
-      var campo = document.getElementById(id);
-      campo.style.borderColor = "#d32f2f";
-      campo.nextElementSibling.style.display = "block";
-      campo.nextElementSibling.textContent = mensaje;
-    }
-
-    function limpiarErrores() {
-      var errores = document.querySelectorAll(".error-msg");
-      errores.forEach(e => { e.style.display = "none"; });
-      var inputs = document.querySelectorAll("input, textarea, select");
-      inputs.forEach(i => { i.style.borderColor = "#ccc"; });
-    }
-
-    // --- Validacion formulario de cita 
-    function validarFormulario() {
-      limpiarErrores();
-      var nombre = nombre = document.getElementById("nombre").value.trim();
-      var correo = document.getElementById("correo").value.trim();
-      var telefono = document.getElementById("telefono").value.trim();
-      var fecha = document.getElementById("fecha").value.trim();
-      var hora = document.getElementById("hora").value.trim();
-      var valido = true;
-
-      if (!nombre) { mostrarError("nombre", "Ingresa tu nombre completo."); valido = false; }
-      var regexCorreo = /^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/;
-      if (!regexCorreo.test(correo)) { mostrarError("correo", "Correo invalido."); valido = false; }
-      var regexTelefono = /^\d{10}$/;
-      if (!regexTelefono.test(telefono)) { mostrarError("telefono", "El telefono debe tener 10 digitos."); valido = false; }
-      var regexFecha = /^\d{2}\/\d{2}\/\d{4}$/;
-      if (!regexFecha.test(fecha)) { mostrarError("fecha", "Formato de fecha: dd/mm/aaaa."); valido = false; }
-      var regexHora = /^\d{2}:\d{2}$/;
-      if (!regexHora.test(hora)) { mostrarError("hora", "Formato de hora: hh:mm."); valido = false; }
-
-      if (valido) alert("Cita enviada correctamente.");
-      return valido;
-    }
-
-    // --- Validacion formulario de cliente 
-    function validarCliente() {
-      limpiarErrores();
-      var nombre = document.getElementById("nombre_cliente").value.trim();
-      var direccion = document.getElementById("direccion").value.trim();
-      var correo = document.getElementById("correo_cliente").value.trim();
-      var telefono = document.getElementById("telefono_cliente").value.trim();
-      var tipo = document.getElementById("tipo").value;
-      var valido = true;
-
-      if (!nombre) { mostrarError("nombre_cliente", "Ingresa el nombre del cliente."); valido = false; }
-      if (!direccion) { mostrarError("direccion", "Ingresa la direccion."); valido = false; }
-      var regexCorreo = /^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/;
-      if (!regexCorreo.test(correo)) { mostrarError("correo_cliente", "Correo invalido."); valido = false; }
-      var regexTelefono = /^\d{10}$/;
-      if (!regexTelefono.test(telefono)) { mostrarError("telefono_cliente", "Telefono de 10 digitos."); valido = false; }
-      if (!tipo) { mostrarError("tipo", "Selecciona el tipo de cliente."); valido = false; }
-
-      if (valido) alert("Cliente registrado correctamente.");
-      return valido;
-    }
-
-    // --- Validacion formulario de pedido 
-    function validarPedido() {
-      limpiarErrores();
-      var producto = document.getElementById("producto").value.trim();
-      var cantidad = document.getElementById("cantidad").value;
-      var fecha = document.getElementById("fecha_entrega").value.trim();
-      var valido = true;
-
-      if (!producto) { mostrarError("producto", "Ingresa el producto."); valido = false; }
-      if (cantidad <= 0) { mostrarError("cantidad", "Cantidad debe ser mayor que 0."); valido = false; }
-      var regexFecha = /^\d{2}\/\d{2}\/\d{4}$/;
-      if (!regexFecha.test(fecha)) { mostrarError("fecha_entrega", "Formato de fecha: dd/mm/aaaa."); valido = false; }
-
-      if (valido) alert("Pedido enviado correctamente.");
-      return valido;
-    }
-
-    // --- Validacion formulario de contacto 
-    function validarContacto() {
-      limpiarErrores();
-      var nombre = document.getElementById("nombre_contacto").value.trim();
-      var correo = document.getElementById("correo_contacto").value.trim();
-      var asunto = document.getElementById("asunto").value.trim();
-      var mensaje = document.getElementById("mensaje_contacto").value.trim();
-      var valido = true;
-
-      if (!nombre) { mostrarError("nombre_contacto", "Ingresa tu nombre."); valido = false; }
-      var regexCorreo = /^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/;
-      if (!regexCorreo.test(correo)) { mostrarError("correo_contacto", "Correo invalido."); valido = false; }
-      if (!asunto) { mostrarError("asunto", "Ingresa un asunto."); valido = false; }
-      if (!mensaje) { mostrarError("mensaje_contacto", "Escribe tu mensaje."); valido = false; }
-
-      if (valido) alert("Mensaje enviado correctamente.");
-      return valido;
-    }
   </script>
 </body>
 </html>
-

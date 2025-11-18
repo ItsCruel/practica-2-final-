@@ -1,94 +1,57 @@
 <?php
-include("conexion.php");
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
-$accion = isset($_GET['action']) ? $_GET['action'] : 'listar';
+require_once __DIR__ . "/inc/Conexion.php";
+require_once __DIR__ . "/inc/Producto.php";
 
-// Alta de producto
-if ($accion == "alta" && $_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST['nombre'];
-    $descripcion = $_POST['descripcion'];
-    $precio = $_POST['precio'];
-    $sql = "INSERT INTO producto (nombre, descripcion, precio) VALUES ('$nombre','$descripcion','$precio')";
-    $conexion->query($sql);
-    header("Location: producto_crud.php");
-    exit();
+
+$cn = new Conexion();
+$conexion = $cn->conectar();
+$producto = new Producto($conexion);
+
+$action = $_REQUEST["action"] ?? "";
+
+switch ($action) {
+
+    // ========================================================
+    // GUARDAR (Insertar o Modificar)
+    // ========================================================
+    case "guardar":
+
+        $id = intval($_POST["id"]);
+        $nombre = $_POST["nombre"];
+        $descripcion = $_POST["descripcion"];
+        $precio = floatval($_POST["precio"]);
+
+        if ($id == 0) {
+            $producto->create($nombre, $descripcion, $precio);
+            echo "Producto agregado correctamente.";
+        } else {
+            $producto->update($id, $nombre, $descripcion, $precio);
+            echo "Producto actualizado correctamente.";
+        }
+        break;
+
+
+    // ========================================================
+    // ELIMINAR
+    // ========================================================
+    case "eliminar":
+        $id = intval($_POST["id"]);
+        $producto->delete($id);
+        echo "Producto eliminado.";
+        break;
+
+
+    // ========================================================
+    // OBTENER (para EDITAR)
+    // ========================================================
+    case "obtener":
+        $id = intval($_GET["id"]);
+        echo json_encode($producto->getById($id));
+        break;
+
+    default:
+        echo "Acción no válida.";
 }
-
-// Modificar producto
-if ($accion == "modificar" && $_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST['id'];
-    $nombre = $_POST['nombre'];
-    $descripcion = $_POST['descripcion'];
-    $precio = $_POST['precio'];
-    $sql = "UPDATE producto SET nombre='$nombre', descripcion='$descripcion', precio='$precio' WHERE id=$id";
-    $conexion->query($sql);
-    header("Location: producto_crud.php");
-    exit();
-}
-
-// Eliminar producto
-if ($accion == "eliminar") {
-    $id = $_GET['id'];
-    $sql = "DELETE FROM producto WHERE id=$id";
-    $conexion->query($sql);
-    header("Location: producto_crud.php");
-    exit();
-}
-?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Productos ABCM</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/paginas.css">
-</head>
-<body>
-<h1>Gestión de Productos</h1>
-
-<?php if($accion=='listar'){ ?>
-<a href="producto_crud.php?action=alta">➕ Agregar Producto</a>
-<table border="1" cellpadding="10">
-<tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Precio</th><th>Acciones</th></tr>
-<?php
-$res = $conexion->query("SELECT * FROM producto");
-while($fila = $res->fetch_assoc()){
-    echo "<tr>
-    <td>{$fila['id']}</td>
-    <td>{$fila['nombre']}</td>
-    <td>{$fila['descripcion']}</td>
-    <td>{$fila['precio']}</td>
-    <td>
-    <a href='producto_crud.php?action=modificar&id={$fila['id']}'>✏️ Modificar</a> |
-    <a href='producto_crud.php?action=eliminar&id={$fila['id']}' onclick='return confirm(\"¿Eliminar?\")'>🗑️ Eliminar</a>
-    </td>
-    </tr>";
-}
-?>
-</table>
-<?php } elseif($accion=='alta'){ ?>
-<h2>Agregar Producto</h2>
-<form method="post" action="producto_crud.php?action=alta">
-<label>Nombre:</label><input type="text" name="nombre" required><br>
-<label>Descripción:</label><textarea name="descripcion" required></textarea><br>
-<label>Precio:</label><input type="number" step="0.01" name="precio" required><br>
-<input type="submit" value="Guardar">
-</form>
-<p><a href="producto_crud.php">⬅ Volver</a></p>
-<?php } elseif($accion=='modificar'){
-$id=$_GET['id'];
-$res=$conexion->query("SELECT * FROM producto WHERE id=$id");
-$prod=$res->fetch_assoc();
-?>
-<h2>Modificar Producto</h2>
-<form method="post" action="producto_crud.php?action=modificar">
-<input type="hidden" name="id" value="<?php echo $prod['id']; ?>">
-<label>Nombre:</label><input type="text" name="nombre" value="<?php echo $prod['nombre']; ?>" required><br>
-<label>Descripción:</label><textarea name="descripcion" required><?php echo $prod['descripcion']; ?></textarea><br>
-<label>Precio:</label><input type="number" step="0.01" name="precio" value="<?php echo $prod['precio']; ?>" required><br>
-<input type="submit" value="Actualizar">
-</form>
-<p><a href="producto_crud.php">⬅ Volver</a></p>
-<?php } ?>
-</body>
-</html>

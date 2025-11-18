@@ -1,7 +1,12 @@
 <?php
-include("conexion.php");
+require_once __DIR__ . "/inc/Conexion.php";
+
+$cn = new Conexion();
+$conexion = $cn->conectar();
+
 $resultado = $conexion->query("SELECT * FROM servicio");
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

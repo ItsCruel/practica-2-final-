@@ -1,5 +1,10 @@
 <?php
-include("conexion.php");
+
+require_once __DIR__ . "/inc/Conexion.php";
+
+$cn = new Conexion();
+$conexion = $cn->conectar();
+
 
 $accion = isset($_GET['action']) ? $_GET['action'] : 'listar';
 

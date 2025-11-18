@@ -132,3 +132,25 @@ body {
   margin-top: 15px;
   font-weight: bold;
 }
+
+
+/* FORZAR QUE EL MENU SE VEA EN EL DASHBOARD */
+#nav {
+    display: block !important;
+    background: #4CAF50 !important;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 3px solid #388E3C;
+}
+
+#nav a {
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 12px;
+    font-size: 18px;
+}
+
+#nav a:hover {
+    color: #ffeb3b !important;
+}

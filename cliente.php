@@ -1,5 +1,14 @@
 <?php
-include("conexion.php");
+require_once __DIR__ . '/inc/Conexion.php';
+
+// Crear instancia de la clase
+$cn = new Conexion();
+
+// Obtener conexión mysqli
+$conexion = $cn->conectar();
+
+
+
 $resultado = $conexion->query("SELECT * FROM cliente");
 ?>
 <!DOCTYPE html>
