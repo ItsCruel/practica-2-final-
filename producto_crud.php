@@ -17,22 +17,26 @@ switch ($action) {
     // ========================================================
     // GUARDAR (Insertar o Modificar)
     // ========================================================
-    case "guardar":
+   case "guardar":
+    $id = intval($_POST["id"]);
+    $nombre = $_POST["nombre"];
+    $descripcion = $_POST["descripcion"];
+    $precio = floatval($_POST["precio"]);
 
-        $id = intval($_POST["id"]);
-        $nombre = $_POST["nombre"];
-        $descripcion = $_POST["descripcion"];
-        $precio = floatval($_POST["precio"]);
+    // Validar que no exista otro producto con el mismo nombre
+    if ($producto->existeNombre($nombre, $id)) {
+        echo "Error: Ya existe un producto con ese nombre.";
+        exit;
+    }
 
-        if ($id == 0) {
-            $producto->create($nombre, $descripcion, $precio);
-            echo "Producto agregado correctamente.";
-        } else {
-            $producto->update($id, $nombre, $descripcion, $precio);
-            echo "Producto actualizado correctamente.";
-        }
-        break;
-
+    if ($id == 0) {
+        $producto->create($nombre, $descripcion, $precio);
+        echo "Producto agregado correctamente.";
+    } else {
+        $producto->update($id, $nombre, $descripcion, $precio);
+        echo "Producto actualizado correctamente.";
+    }
+    break;
 
     // ========================================================
     // ELIMINAR

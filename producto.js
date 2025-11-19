@@ -7,6 +7,10 @@ $(document).ready(function () {
 });
 
 function guardarProducto() {
+    if (!nombreValido) {
+        alert("El nombre del producto ya existe o no es válido.");
+        return; // no continúa con la petición AJAX
+    }
 
     $.ajax({
         url: "producto_crud.php",
@@ -22,6 +26,7 @@ function guardarProducto() {
             alert(resp);
             cargarTabla();
             limpiarFormulario();
+            nombreValido = false; // resetear para la próxima validación
         }
     });
 }
@@ -59,6 +64,8 @@ function editarProducto(id) {
     });
 }
 
+let nombreValido = false;
+
 function validarNombre() {
     $.ajax({
         url: "ajax_valida_producto.php",
@@ -67,12 +74,15 @@ function validarNombre() {
         success: function (resp) {
             if (resp === "existe") {
                 $("#mensajeNombre").html("⚠ Ya existe").css("color", "red");
+                nombreValido = false;
             } else {
                 $("#mensajeNombre").html("✔ Disponible").css("color", "green");
+                nombreValido = true;
             }
         }
     });
 }
+
 
 function limpiarFormulario() {
     $("#id").val("");

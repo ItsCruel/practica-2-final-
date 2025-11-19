@@ -41,11 +41,18 @@ class Producto {
         return $stmt->execute();
     }
 
-    public function existsByName($nombre) {
+ public function existeNombre($nombre, $idExcluir = 0) {
+    if ($idExcluir > 0) {
+        $stmt = $this->conexion->prepare("SELECT id FROM producto WHERE nombre = ? AND id != ?");
+        $stmt->bind_param("si", $nombre, $idExcluir);
+    } else {
         $stmt = $this->conexion->prepare("SELECT id FROM producto WHERE nombre = ?");
         $stmt->bind_param("s", $nombre);
-        $stmt->execute();
-        return $stmt->get_result()->num_rows > 0;
     }
+
+    $stmt->execute();
+    return $stmt->get_result()->num_rows > 0;
+}
+
 }
 ?>

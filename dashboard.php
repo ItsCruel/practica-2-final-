@@ -30,83 +30,85 @@ $usuarioRol = $_SESSION['rol'] ?? '';
   </div>
 
   
-   <div id="nav">
-    <a href="cliente.php">Clientes</a> |
-    <a href="producto.php">Productos</a> |
+ <!-- MENÚ PRINCIPAL -->
+<div id="nav">
+    <b>Gestión:</b>
+    <a href="cliente.php">Clientes</a>
+    <a href="producto.php">Productos</a>
     <a href="servicio.php">Servicios</a>
-   <?php if ($usuarioRol === 'admin'): ?>
-      | <a href="usuarios_crud.php">Usuarios</a>
+    <?php if ($usuarioRol === 'admin'): ?>
+        <a href="usuarios_crud.php">Usuarios</a>
     <?php endif; ?>
-  </div>
 
-  <div id="nav">
-    <a href="#cita">Registrar cita</a> |
-    <a href="#cliente">Registrar cliente</a> |
-    <a href="#pedido">Registrar pedido</a> |
+    <br><br>
+
+    <b>Registros:</b>
+    <a href="#cita">Registrar cita</a>
+    <a href="#cliente">Registrar cliente</a>
+    <a href="#pedido">Registrar pedido</a>
     <a href="#contacto">Contacto interno</a>
-  </div>
 
-  <div id="nav">
-  <a href="ver_citas.php">Ver Citas</a> |
-  <a href="ver_pedidos.php">Ver Pedidos</a> |
-  <a href="ver_contactos.php">Ver Contactos Internos</a>
+    <br><br>
+
+    <b>Consultas:</b>
+    <a href="ver_citas.php">Ver Citas</a>
+    <a href="ver_pedidos.php">Ver Pedidos</a>
+    <a href="ver_contactos.php">Ver Contactos Internos</a>
 </div>
 
 
+<!-- FORMULARIO CITA -->
+<div id="cita" class="form-container">
+  <h2>Registrar una cita</h2>
+  <form action="procesar_cita.php" method="post" onsubmit="return validarFormulario()">
+    <label for="nombre_cita">Nombre completo:</label>
+    <input type="text" id="nombre_cita" name="nombre">
+    <div class="error-msg"></div>
 
-  <!-- FORMULARIOS -->
-  <!-- CITA -->
-  <div id="cita" class="form-container">
-    <h2>Registrar una cita</h2>
-    <form action="procesar_cita.php" method="post" onsubmit="return validarFormulario()">
-      <label for="nombre">Nombre completo:</label>
-      <input type="text" id="nombre" name="nombre">
-      <div class="error-msg"></div>
+    <label for="correo_cita">Correo:</label>
+    <input type="text" id="correo_cita" name="correo">
+    <div class="error-msg"></div>
 
-      <label for="correo">Correo:</label>
-      <input type="text" id="correo" name="correo">
-      <div class="error-msg"></div>
+    <label for="telefono_cita">Teléfono (10 dígitos):</label>
+    <input type="text" id="telefono_cita" name="telefono" maxlength="10">
+    <div class="error-msg"></div>
 
-      <label for="telefono">Teléfono (10 dígitos):</label>
-      <input type="text" id="telefono" name="telefono" maxlength="10">
-      <div class="error-msg"></div>
+    <label for="fecha">Fecha (dd/mm/aaaa):</label>
+    <input type="text" id="fecha" name="fecha">
+    <div class="error-msg"></div>
 
-      <label for="fecha">Fecha (dd/mm/aaaa):</label>
-      <input type="text" id="fecha" name="fecha">
-      <div class="error-msg"></div>
+    <label for="hora">Hora (hh:mm):</label>
+    <input type="text" id="hora" name="hora">
+    <div class="error-msg"></div>
 
-      <label for="hora">Hora (hh:mm):</label>
-      <input type="text" id="hora" name="hora">
-      <div class="error-msg"></div>
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje"></textarea>
 
-      <label for="mensaje">Mensaje:</label>
-      <textarea id="mensaje" name="mensaje"></textarea>
+    <input type="submit" value="Enviar cita">
+  </form>
+</div>
 
-      <input type="submit" value="Enviar cita">
-    </form>
-  </div>
-
-  <!-- CLIENTE -->
- <!-- FORMULARIO CLIENTE en dashboard -->
+<!-- FORMULARIO CLIENTE -->
 <div id="cliente" class="form-container">
   <h2>Registro de Cliente</h2>
   <form action="cliente_crud.php" method="post" onsubmit="return validarCliente()">
-
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required>
+    <label for="nombre_cliente">Nombre:</label>
+    <input type="text" id="nombre_cliente" name="nombre" required>
     <div class="error-msg"></div>
 
-    <label for="correo">Correo:</label>
-    <input type="email" id="correo" name="correo" required>
+    <label for="correo_cliente">Correo:</label>
+    <input type="email" id="correo_cliente" name="correo" required>
     <div class="error-msg"></div>
 
-    <label for="telefono">Teléfono:</label>
-    <input type="text" id="telefono" name="telefono" maxlength="10">
+    <label for="telefono_cliente">Teléfono:</label>
+    <input type="text" id="telefono_cliente" name="telefono" maxlength="10">
     <div class="error-msg"></div>
 
     <input type="submit" name="guardar" value="Registrar cliente">
   </form>
 </div>
+
+
 
 
   <!-- PEDIDO -->
