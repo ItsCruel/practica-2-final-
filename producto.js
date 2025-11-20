@@ -9,7 +9,7 @@ $(document).ready(function () {
 function guardarProducto() {
     if (!nombreValido) {
         alert("El nombre del producto ya existe o no es válido.");
-        return; // no continúa con la petición AJAX
+        return; // no continua con la peticion AJAX
     }
 
     $.ajax({
@@ -26,7 +26,7 @@ function guardarProducto() {
             alert(resp);
             cargarTabla();
             limpiarFormulario();
-            nombreValido = false; // resetear para la próxima validación
+            nombreValido = false; // resetear 
         }
     });
 }

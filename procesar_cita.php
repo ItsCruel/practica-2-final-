@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cn = new Conexion();
     $conexion = $cn->conectar();
 
-    // Sanear datos mínimamente (evitar XSS)
+    // Sanear datos minimamente 
     $nombre   = htmlspecialchars(trim($_POST['nombre']));
     $correo   = htmlspecialchars(trim($_POST['correo']));
     $telefono = htmlspecialchars(trim($_POST['telefono']));
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 } else {
-    // No llegó por POST, redirigir
+    // No llego por POST, redirigir
     header("Location: index.html");
     exit();
 }

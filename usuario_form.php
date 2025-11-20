@@ -12,7 +12,7 @@ $usuario = [
     "rol"       => "empleado",
 ];
 
-// Si es edición, obtener datos
+// Si es edicion, obtener datos
 if ($accion == "modificar" && $id) {
     $usuario = $usuarioClass->obtenerPorId($id);
 

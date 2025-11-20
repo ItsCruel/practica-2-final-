@@ -10,14 +10,14 @@ $msg = "";
 //      GUARDAR / EDITAR
 // =========================
 if (isset($_POST["guardar"])) {
-    // tomar valores y sanear mínimamente
+    // tomar valores y sanear
     $id = isset($_POST["id"]) && $_POST["id"] !== '' ? intval($_POST["id"]) : null;
     $nombre = $conexion->real_escape_string(trim($_POST["nombre"]));
     $correo = $conexion->real_escape_string(trim($_POST["correo"]));
     $telefono = $conexion->real_escape_string(trim($_POST["telefono"]));
 
     if ($id === null) {
-        // Insertar con prepared statement
+        // Insertar 
         $stmt = $conexion->prepare("INSERT INTO cliente (nombre, correo, telefono) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $nombre, $correo, $telefono);
         if ($stmt->execute()) {
@@ -61,7 +61,7 @@ if (isset($_GET["eliminar"])) {
 }
 
 // =========================
-//     EDITAR (cargar datos)
+//     EDITAR 
 // =========================
 $editar = null;
 if (isset($_GET["editar"])) {
@@ -75,7 +75,7 @@ if (isset($_GET["editar"])) {
     $stmt->close();
 }
 
-// mensajes por querystring (después del header redirect)
+// mensajes por querystring 
 if (isset($_GET['msg'])) {
     switch ($_GET['msg']) {
         case 'guardado': $msg = "Cliente guardado correctamente."; break;
@@ -94,7 +94,7 @@ $lista = $conexion->query("SELECT * FROM cliente ORDER BY id DESC");
 <title>CRUD Cliente (simple)</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
-/* estilos muy simples para que se vea bien */
+/* estilos  */
 body{font-family: Arial, sans-serif; margin:20px;}
 table{border-collapse:collapse; width:100%;}
 table td, table th{border:1px solid #ddd; padding:8px;}

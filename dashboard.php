@@ -160,7 +160,7 @@ $usuarioRol = $_SESSION['rol'] ?? '';
     </form>
   </div>
 
-  <!-- VALIDACIONES (copiadas del index original) -->
+  <!-- VALIDACIONES  -->
   <script src="validaciones.js"></script>
 
 </body>

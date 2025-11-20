@@ -15,7 +15,7 @@ $action = $_REQUEST["action"] ?? "";
 switch ($action) {
 
     // ========================================================
-    // GUARDAR (Insertar o Modificar)
+    // GUARDAR 
     // ========================================================
    case "guardar":
     $id = intval($_POST["id"]);

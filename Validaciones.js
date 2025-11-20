@@ -1,5 +1,5 @@
 // ===============================
-// VALIDACIÓN PARA FORMULARIO DE CITA
+// VALIDACION PARA FORMULARIO DE CITA
 // ===============================
 function validarFormulario() {
     let valido = true;
@@ -42,7 +42,7 @@ function validarFormulario() {
 
 
 // ===============================
-// VALIDACIÓN CLIENTES
+// VALIDACION CLIENTES
 // ===============================
 function validarCliente() {
     let valido = true;
@@ -85,7 +85,7 @@ function validarCliente() {
 
 
 // ===============================
-// VALIDACIÓN PEDIDO
+// VALIDACION PEDIDO
 // ===============================
 function validarPedido() {
     let valido = true;
@@ -116,7 +116,7 @@ function validarPedido() {
 
 
 // ===============================
-// VALIDACIÓN CONTACTO INTERNO
+// VALIDACION CONTACTO INTERNO
 // ===============================
 function validarContacto() {
     let valido = true;
